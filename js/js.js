@@ -316,7 +316,7 @@ function changeLanguage() {
 	let modalfour = document.getElementById('modalfour');
 	let im = document.getElementById('im');
 	let skills = document.getElementById('skills');
-	let aboutmee = document.getElementById('');
+	let aboutmee = document.getElementById('aboutmee');
 	let formation = document.getElementById('formation');
 	let udemy = document.getElementById('udemy');
 	let davinci = document.getElementById('davinci');
@@ -358,7 +358,8 @@ function changeLanguage() {
 		modalfour.innerHTML = '<i class="fa-solid fa-cloud-arrow-up"></i><h3>Mantenimiento de hosting</h3><p>Costo anual U$S40, se abona al finalizar el sitio.</p>';
 		im.innerHTML = '<p id="im">Hola! &#128075; me llamo Juan Pablo Duette y soy <strong>diseñador web</strong>. Manejo las últimas tecnologías del mercado, me gusta mantenerme actualizado para poder brindar diseños de alto impacto.<br><br>Me caracterizo por hacer el seguimiento de mis clientes y brindar el soporte que necesitan ante cualquier circunstancia que ellos requieran.</p>';
 		skills.textContent = 'Habilidades';
-		aboutmee.innerHTML = '<a href="" class="botonbig aboutme2" id="aboutme">Sobre mi<i class="fa-solid fa-arrow-up"></i></a>';
+		// aboutmee.innerHTML = '<a href="" class="botonbig aboutme2" id="aboutme">Sobre mi<i class="fa-solid fa-arrow-up"></i></a>';
+		aboutmee.textContent = 'Sobre mi';
 		formation.textContent = 'Formación';
 		udemy.innerHTML = '<li id="udemy"><strong>Desarrollador Front End</strong> - Udemy (2022)</li>';
 		davinci.innerHTML = '<li id="davinci"><strong>Desarrollador Web</strong> - Escuela Multimedial Davinci (2006)</li>';
@@ -399,6 +400,7 @@ function changeLanguage() {
 		im.innerHTML = '<p id="im">Hello! &#128075; My name is Juan Pablo Duette and I am a <strong>web designer</strong>. I handle the latest technologies on the market, I like to keep myself updated in order to provide high-impact designs.<br><br>I am known for following up on my clients and providing the support they need in any circumstance that they require.</p >';
 		skills.textContent = 'Skills';
 		//aboutmee.innerHTML = '<a href="" class="botonbig aboutme2" id="aboutme">Sobre mi<i class="fa-solid fa-arrow-up"></i></a>';
+		aboutmee.textContent = 'About Me';
 		formation.textContent = 'Formation';
 		udemy.innerHTML = '<li id="udemy"><strong>Front End Developer</strong> - Udemy (2022)</li>';
 		davinci.innerHTML = '<li id="davinci"><strong>Web Developer</strong> - Escuela Multimedial Davinci (2006)</li>';
