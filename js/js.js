@@ -399,7 +399,6 @@ function changeLanguage() {
 		modalfour.innerHTML = '<i class="fa-solid fa-cloud-arrow-up"></i><h3>Hosting maintenance</h3><p>Annual cost US$40, paid at the end of the site</p>';
 		im.innerHTML = '<p id="im">Hello! &#128075; My name is Juan Pablo Duette and I am a <strong>web designer</strong>. I handle the latest technologies on the market, I like to keep myself updated in order to provide high-impact designs.<br><br>I am known for following up on my clients and providing the support they need in any circumstance that they require.</p >';
 		skills.textContent = 'Skills';
-		//aboutmee.innerHTML = '<a href="" class="botonbig aboutme2" id="aboutme">Sobre mi<i class="fa-solid fa-arrow-up"></i></a>';
 		aboutmee.textContent = 'About Me';
 		formation.textContent = 'Formation';
 		udemy.innerHTML = '<li id="udemy"><strong>Front End Developer</strong> - Udemy (2022)</li>';
