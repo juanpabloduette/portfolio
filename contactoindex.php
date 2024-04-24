@@ -12,7 +12,7 @@ $mail->isSMTP();                              // Indicar al mailer que use SMTP
 $mail->Host = 'dtc030.ferozo.com';           // Acá va el host SMTP dtc030.ferozo.com
 $mail->SMTPAuth = true;                       // Activar la autenticación SMTP
 $mail->Username = 'info@juanpabloduette.com.ar';    // La cuenta de correos que vas a utilizar. Tiene que estar creada previamente en el cPanel
-$mail->Password = 'Italia90';             // La clave de de esa cuenta de correos
+$mail->Password = 'Password';             // La clave de de esa cuenta de correos
 $mail->SMTPSecure = 'ssl';                    // Activar el cifrado TLS, "ssl" también es aceptado
 $mail->Port = 465;
 $mail->CharSet = "utf-8";
@@ -27,7 +27,7 @@ $mail->SMTPOptions = array(
 
 //$mail->From = $email; // Email desde donde envío el correo.
 //$mail->FromName = $nombre;
-$mail->setFrom($emailpri, $nombrepri);  
+$mail->setFrom($emailpri, $nombrepri);
 //print_r($emailpri." - ".$nombrepri);
 //die();         // El correo desde cual sale el correo y el "nombre" 
 $mail->addAddress('info@juanpabloduette.com.ar', 'JP');  // Añadir el recipiente
@@ -36,12 +36,12 @@ $mail->addAddress('info@juanpabloduette.com.ar', 'JP');  // Añadir el recipient
 // $mail->addBCC('bcc@ejemplo.com');                                // Indicar una cuenta de copia adicional (ocional)
 
 $mail->isHTML(true);                                             // Indicar que esté activo HTML
-$mail->Subject = 'Contacto desde sitio web';               
-$mail->Body    = '<b>Nombre:</b> ' .$nombrepri. ' <br>
-                  <b>Email:</b> ' .$emailpri.'';
-$mail->AltBody = 'Contacto desde sitio web';  
+$mail->Subject = 'Contacto desde sitio web';
+$mail->Body    = '<b>Nombre:</b> ' . $nombrepri . ' <br>
+                  <b>Email:</b> ' . $emailpri . '';
+$mail->AltBody = 'Contacto desde sitio web';
 
-if(!$mail->send()) {
+if (!$mail->send()) {
     echo '<b>El mensaje no pudo ser enviado.</b> Redireccionando al sitio web ...';
     echo 'Error del Mailer: ' . $mail->ErrorInfo;
     // header("Location: index.html");
@@ -57,7 +57,7 @@ if(!$mail->send()) {
         ";
     //echo "<script>alert('El mensaje se envió correctamente, te contestaremos a la brevedad.');</script>";
     // header("Location: index.html");
-     echo '<script>
+    echo '<script>
             setTimeout(function(){ 
             window.location="index.html"
             }, 1500);
