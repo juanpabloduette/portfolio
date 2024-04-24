@@ -11,7 +11,7 @@ $mail->isSMTP();                              // Indicar al mailer que use SMTP
 $mail->Host = 'dtc030.ferozo.com';           // Acá va el host SMTP dtc030.ferozo.com
 $mail->SMTPAuth = true;                       // Activar la autenticación SMTP
 $mail->Username = 'info@juanpabloduette.com.ar';    // La cuenta de correos que vas a utilizar. Tiene que estar creada previamente en el cPanel
-$mail->Password = 'Italia90';             // La clave de de esa cuenta de correos
+$mail->Password = 'Password';             // La clave de de esa cuenta de correos
 $mail->SMTPSecure = 'ssl';                    // Activar el cifrado TLS, "ssl" también es aceptado
 $mail->Port = 465;
 $mail->CharSet = "utf-8";
