@@ -124,6 +124,9 @@ ul li {
 .contactomovil {
 	display: none;
 }
+.contactomovil:active {
+	-webkit-tap-highlight-color: transparent;
+}
 
 nav {
 	background-color: #e6e3e3;
@@ -173,7 +176,7 @@ body.dark nav {
 }
 .contacto button:hover,
 .contactomovil button:hover {
-	color: #b3b3b3;
+	/* color: #b3b3b3; */
 }
 
 body.dark .contacto button,
@@ -206,6 +209,11 @@ body.dark .contacto h3 {
 	display: flex;
 	position: relative;
 	justify-content: center;
+}
+
+.tab:active,
+.language-button:active {
+	-webkit-tap-highlight-color: transparent;
 }
 
 #tab-slider {
@@ -1340,6 +1348,10 @@ body.dark .formulario input {
 	transform: translate(-50%, -50%);
 }
 
+body.dark .section3-7 {
+	background-image: none;
+}
+
 .section3-8 img {
 	position: absolute;
 	width: 300px;
@@ -1560,6 +1572,9 @@ body.dark .contenidopup-6 {
 
 	transform: scale(0.6);
 	min-width: 200px;
+}
+.toggle:active {
+	-webkit-tap-highlight-color: transparent;
 }
 
 .toggle-button {
