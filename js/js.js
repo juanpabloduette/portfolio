@@ -460,27 +460,10 @@ function changeLanguage() {
 document.addEventListener("DOMContentLoaded", () => {
 	const form = document.getElementById("formulario");
 
-	form.addEventListener("submit", async (e) => {
-		e.preventDefault(); // <--- SI ESTO NO CORRE, VES EL JSON EN LA PAGINA
-
-		const formData = new FormData(form);
-
-		try {
-			const respuesta = await fetch("/api/sendmail", {
-				method: "POST",
-				body: new URLSearchParams(formData),
-				headers: {
-					"Content-Type": "application/x-www-form-urlencoded",
-				},
-			});
-
-			const data = await respuesta.json();
-
-			document.getElementById("formulario__mensaje-exito").textContent =
-				data.mensaje;
-		} catch (error) {
-			console.error("Error:", error);
-		}
+	form.addEventListener("submit", (e) => {
+		console.log("Submit interceptado 🔥");
+		e.preventDefault();
 	});
+
 	console.log("🔥 EL SCRIPT SE EJECUTA");
 });
