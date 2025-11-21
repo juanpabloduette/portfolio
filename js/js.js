@@ -467,7 +467,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const form = document.getElementById("formulario");
 
 	form.addEventListener("submit", async (e) => {
-		e.preventDefault(); // <--- SI ESTO NO CORRE, VES EL JSON EN LA PAGINA
+		e.preventDefault();
 
 		const formData = new FormData(form);
 
@@ -489,7 +489,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				data.mensaje;
 			setTimeout(() => {
 				document
-					.getElementById("formulario__mensaje")
+					.getElementById("formulario__mensaje-exito")
 					.classList.remove("formulario__mensaje-exito-activo");
 			}, 3000);
 
