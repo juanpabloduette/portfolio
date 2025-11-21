@@ -479,6 +479,9 @@ document.addEventListener("DOMContentLoaded", () => {
 					"Content-Type": "application/x-www-form-urlencoded",
 				},
 			});
+			const buttonsend = document.getElementById("buttonsend");
+			buttonsend.disabled = true;
+			buttonsend.textContent = "Enviando...";
 
 			const data = await respuesta.json();
 
@@ -492,7 +495,9 @@ document.addEventListener("DOMContentLoaded", () => {
 					.getElementById("formulario__mensaje-exito")
 					.classList.remove("formulario__mensaje-exito-activo");
 			}, 3000);
-
+			buttonsend.disabled = false;
+			buttonsend.textContent = "Enviar";
+			form.reset();
 			console.log(data);
 		} catch (error) {
 			console.error("Error:", error);
