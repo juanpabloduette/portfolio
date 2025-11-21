@@ -36,20 +36,8 @@
 	}
 }
 
-/* ESTILOS DE MENSAJE PHP  */
-.msgphp {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 100vh;
+.container-message {
 	font-family: "silka", "Inconsolata", monospace;
-}
-
-.msgphpbox {
-	border-radius: 30px;
-	transition: 0.25s ease all;
-	padding: 40px;
-	background-color: #ffffff;
 }
 
 body {
@@ -214,6 +202,30 @@ body.dark .contacto h3 {
 .tab:active,
 .language-button:active {
 	-webkit-tap-highlight-color: transparent;
+}
+.im-box {
+	display: flex;
+}
+.im-box p {
+	width: 50%;
+	padding: 10px;
+}
+
+#im2 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	/* background-color: #0068b7; */
+}
+#im2 a {
+	text-decoration: none;
+	color: #000000;
+	font-size: 1.2rem;
+	padding: 5px 10px;
+	font-weight: 600;
+	transition: all 0.4s;
+	font-family: "silka", "Inconsolata", monospace;
 }
 
 #tab-slider {
