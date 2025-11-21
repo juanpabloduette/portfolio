@@ -197,31 +197,37 @@ inputs.forEach((input) => {
 	input.addEventListener("blur", validarFormulario);
 });
 
-// formulario.addEventListener("submit", (e) => {
-// 	e.preventDefault();
+formulario.addEventListener("submit", (e) => {
+	e.preventDefault();
 
-// 	if (campos.nombre && campos.correo) {
-// 		document
-// 			.getElementById("formulario__mensaje-exito")
-// 			.classList.add("formulario__mensaje-exito-activo");
-// 		setTimeout(() => {
-// 			document
-// 				.getElementById("formulario__mensaje-exito")
-// 				.classList.remove("formulario__mensaje-exito-activo");
-// 		}, 5000);
-// 		formulario.submit();
-// 		formulario.reset();
-// 	} else {
-// 		document
-// 			.getElementById("formulario__mensaje")
-// 			.classList.add("formulario__mensaje-activo");
-// 		setTimeout(() => {
-// 			document
-// 				.getElementById("formulario__mensaje")
-// 				.classList.remove("formulario__mensaje-activo");
-// 		}, 5000);
-// 	}
-// });
+	if (campos.nombre && campos.correo) {
+		const formData = new FormData(formulario);
+
+		fetch("/api/sendmail", {
+			method: "POST",
+			body: new URLSearchParams(formData),
+			headers: {
+				"Content-Type": "application/x-www-form-urlencoded",
+			},
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				document.getElementById("formulario__mensaje-exito").textContent =
+					data.mensaje;
+
+				formulario.reset();
+			});
+	} else {
+		document
+			.getElementById("formulario__mensaje")
+			.classList.add("formulario__mensaje-activo");
+		setTimeout(() => {
+			document
+				.getElementById("formulario__mensaje")
+				.classList.remove("formulario__mensaje-activo");
+		}, 5000);
+	}
+});
 
 // FORMULARIO DE PORTFOLIO
 
@@ -457,30 +463,30 @@ function changeLanguage() {
 
 //FORMULARIO ENVIAR MAIL
 
-document.addEventListener("DOMContentLoaded", () => {
-	const form = document.getElementById("formulario");
+// document.addEventListener("DOMContentLoaded", () => {
+// 	const form = document.getElementById("formulario");
 
-	form.addEventListener("submit", async (e) => {
-		e.preventDefault(); // <--- SI ESTO NO CORRE, VES EL JSON EN LA PAGINA
+// 	form.addEventListener("submit", async (e) => {
+// 		e.preventDefault(); // <--- SI ESTO NO CORRE, VES EL JSON EN LA PAGINA
 
-		const formData = new FormData(form);
+// 		const formData = new FormData(form);
 
-		try {
-			const respuesta = await fetch("/api/sendmail", {
-				method: "POST",
-				body: new URLSearchParams(formData),
-				headers: {
-					"Content-Type": "application/x-www-form-urlencoded",
-				},
-			});
+// 		try {
+// 			const respuesta = await fetch("/api/sendmail", {
+// 				method: "POST",
+// 				body: new URLSearchParams(formData),
+// 				headers: {
+// 					"Content-Type": "application/x-www-form-urlencoded",
+// 				},
+// 			});
 
-			const data = await respuesta.json();
+// 			const data = await respuesta.json();
 
-			document.getElementById("formulario__mensaje-exito").textContent =
-				data.mensaje;
-		} catch (error) {
-			console.error("Error:", error);
-		}
-	});
-	console.log("🔥 EL SCRIPT SE EJECUTA");
-});
+// 			document.getElementById("formulario__mensaje-exito").textContent =
+// 				data.mensaje;
+// 		} catch (error) {
+// 			console.error("Error:", error);
+// 		}
+// 	});
+// 	console.log("🔥 EL SCRIPT SE EJECUTA");
+// });
