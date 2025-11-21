@@ -24,7 +24,7 @@ const transporter = nodeMailer.createTransport({
 
 server.post("/sendmail", async (req, res) => {
 	const { nombre, correo } = req.body;
-	console.log(req.body);
+	// console.log(req.body);
 	if (!nombre || !correo) {
 		return res.status(400).send("Por favor, complete todos los campos.");
 	}

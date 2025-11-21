@@ -396,7 +396,7 @@ body.dark .section3-8 {
 	position: relative;
 }
 .element2 .element2-content {
-	background-image: url("../img/map.png");
+	background-image: url("../img/map.PNG");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
