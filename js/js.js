@@ -484,6 +484,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			document.getElementById("formulario__mensaje-exito").textContent =
 				data.mensaje;
+			console.log(data);
 		} catch (error) {
 			console.error("Error:", error);
 		}
