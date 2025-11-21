@@ -457,22 +457,29 @@ function changeLanguage() {
 
 //FORMULARIO ENVIAR MAIL
 
-document.getElementById("formulario").addEventListener("submit", async (e) => {
-	e.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
+	const form = document.getElementById("formulario");
 
-	const form = e.target;
-	const formData = new FormData(form);
+	form.addEventListener("submit", async (e) => {
+		e.preventDefault(); // <--- SI ESTO NO CORRE, VES EL JSON EN LA PAGINA
 
-	const respuesta = await fetch("/api/sendmail", {
-		method: "POST",
-		body: new URLSearchParams(formData),
-		headers: {
-			"Content-Type": "application/x-www-form-urlencoded",
-		},
+		const formData = new FormData(form);
+
+		try {
+			const respuesta = await fetch("/api/sendmail", {
+				method: "POST",
+				body: new URLSearchParams(formData),
+				headers: {
+					"Content-Type": "application/x-www-form-urlencoded",
+				},
+			});
+
+			const data = await respuesta.json();
+
+			document.getElementById("formulario__mensaje-exito").textContent =
+				data.mensaje;
+		} catch (error) {
+			console.error("Error:", error);
+		}
 	});
-
-	const data = await respuesta.json();
-
-	document.getElementById("formulario__mensaje-exito").textContent =
-		data.mensaje;
 });
