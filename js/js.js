@@ -463,30 +463,30 @@ function changeLanguage() {
 
 //FORMULARIO ENVIAR MAIL
 
-// document.addEventListener("DOMContentLoaded", () => {
-// 	const form = document.getElementById("formulario");
+document.addEventListener("DOMContentLoaded", () => {
+	const form = document.getElementById("formulario");
 
-// 	form.addEventListener("submit", async (e) => {
-// 		e.preventDefault(); // <--- SI ESTO NO CORRE, VES EL JSON EN LA PAGINA
+	form.addEventListener("submit", async (e) => {
+		e.preventDefault(); // <--- SI ESTO NO CORRE, VES EL JSON EN LA PAGINA
 
-// 		const formData = new FormData(form);
+		const formData = new FormData(form);
 
-// 		try {
-// 			const respuesta = await fetch("/api/sendmail", {
-// 				method: "POST",
-// 				body: new URLSearchParams(formData),
-// 				headers: {
-// 					"Content-Type": "application/x-www-form-urlencoded",
-// 				},
-// 			});
+		try {
+			const respuesta = await fetch("/api/sendmail", {
+				method: "POST",
+				body: new URLSearchParams(formData),
+				headers: {
+					"Content-Type": "application/x-www-form-urlencoded",
+				},
+			});
 
-// 			const data = await respuesta.json();
+			const data = await respuesta.json();
 
-// 			document.getElementById("formulario__mensaje-exito").textContent =
-// 				data.mensaje;
-// 		} catch (error) {
-// 			console.error("Error:", error);
-// 		}
-// 	});
-// 	console.log("🔥 EL SCRIPT SE EJECUTA");
-// });
+			document.getElementById("formulario__mensaje-exito").textContent =
+				data.mensaje;
+		} catch (error) {
+			console.error("Error:", error);
+		}
+	});
+	console.log("🔥 EL SCRIPT SE EJECUTA");
+});
