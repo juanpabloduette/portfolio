@@ -487,6 +487,11 @@ document.addEventListener("DOMContentLoaded", () => {
 				.classList.add("formulario__mensaje-exito-activo");
 			document.getElementById("formulario__mensaje-exito").textContent =
 				data.mensaje;
+			setTimeout(() => {
+				document
+					.getElementById("formulario__mensaje")
+					.classList.remove("formulario__mensaje-exito-activo");
+			}, 3000);
 
 			console.log(data);
 		} catch (error) {
