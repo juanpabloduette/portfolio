@@ -454,3 +454,29 @@ function changeLanguage() {
 			"If you liked them you can contact me to start a project together.";
 	}
 }
+
+//FORMULARIO ENVIAR MAIL
+
+document.getElementById("formulario").addEventListener("submit", async (e) => {
+	e.preventDefault(); // Evita el reload
+
+	const form = e.target;
+	const formData = new FormData(form);
+
+	// Mostrar mensaje de "enviando" si querés
+	document.getElementById("formulario__mensaje-exito").textContent =
+		"Enviando...";
+
+	const respuesta = await fetch("/api/sendmail", {
+		method: "POST",
+		body: new URLSearchParams(formData),
+		headers: {
+			"Content-Type": "application/x-www-form-urlencoded",
+		},
+	});
+
+	const html = await respuesta.text();
+
+	// Mostrar en la misma página
+	document.getElementById("formulario__mensaje-exito").innerHTML = html;
+});

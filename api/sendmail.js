@@ -34,21 +34,23 @@ export default async function handler(req, res) {
 	try {
 		await transporter.sendMail(mailOptions);
 
-		return res.status(200).send(`
-			<html>
-			  <body style="background-color: white; color: #343d5d; width: 100%; height: 100vh; font-family: Arial, sans-serif; margin-top: 50px;">
-				<div style="max-width: 500px; margin: 0 auto; background-color: #6ed2b7;border-radius: 30px; display:flex; justify-content: center; align-items: center; flex-direction: column;" class="container-message"> 
-					<h2>Mensaje enviado con éxito</h2>
-					<p>Serás redirigido en unos segundos...</p>
-				</div>
-				<script>
-				  setTimeout(() => {
-					window.location.href = "/";
-				  }, 1500);
-				</script>
-			  </body>
-			</html>
-		`);
+		res.send("<h2>Mensaje enviado OK</h2>");
+
+		// return res.status(200).send(`
+		// 	<html>
+		// 	  <body style="background-color: white; color: #343d5d; width: 100%; height: 100vh; font-family: Arial, sans-serif; margin-top: 50px;">
+		// 		<div style="max-width: 500px; margin: 0 auto; background-color: #6ed2b7;border-radius: 30px; display:flex; justify-content: center; align-items: center; flex-direction: column;" class="container-message">
+		// 			<h2>Mensaje enviado con éxito</h2>
+		// 			<p>Serás redirigido en unos segundos...</p>
+		// 		</div>
+		// 		<script>
+		// 		  setTimeout(() => {
+		// 			window.location.href = "/";
+		// 		  }, 1500);
+		// 		</script>
+		// 	  </body>
+		// 	</html>
+		// `);
 	} catch (error) {
 		console.error("Error:", error);
 		return res.status(500).json({ message: error.message });
