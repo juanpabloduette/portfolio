@@ -458,14 +458,10 @@ function changeLanguage() {
 //FORMULARIO ENVIAR MAIL
 
 document.getElementById("formulario").addEventListener("submit", async (e) => {
-	e.preventDefault(); // Evita el reload
+	e.preventDefault();
 
 	const form = e.target;
 	const formData = new FormData(form);
-
-	// Mostrar mensaje de "enviando" si querés
-	document.getElementById("formulario__mensaje-exito").textContent =
-		"Enviando...";
 
 	const respuesta = await fetch("/api/sendmail", {
 		method: "POST",
@@ -475,8 +471,8 @@ document.getElementById("formulario").addEventListener("submit", async (e) => {
 		},
 	});
 
-	const html = await respuesta.text();
+	const data = await respuesta.json();
 
-	// Mostrar en la misma página
-	document.getElementById("formulario__mensaje-exito").innerHTML = html;
+	document.getElementById("formulario__mensaje-exito").textContent =
+		data.mensaje;
 });

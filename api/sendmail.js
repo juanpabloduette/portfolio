@@ -34,7 +34,8 @@ export default async function handler(req, res) {
 	try {
 		await transporter.sendMail(mailOptions);
 
-		res.send("<h2>Mensaje enviado OK</h2>");
+		// res.send("<h2>Mensaje enviado OK</h2>");
+		res.json({ ok: true, mensaje: "Mensaje enviado correctamente" });
 
 		// return res.status(200).send(`
 		// 	<html>
