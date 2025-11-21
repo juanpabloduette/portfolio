@@ -482,4 +482,5 @@ document.addEventListener("DOMContentLoaded", () => {
 			console.error("Error:", error);
 		}
 	});
+	console.log("🔥 EL SCRIPT SE EJECUTA");
 });
