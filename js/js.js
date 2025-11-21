@@ -482,8 +482,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			const data = await respuesta.json();
 
+			document
+				.getElementById("formulario__mensaje-exito")
+				.classList.add("formulario__mensaje-exito-activo");
 			document.getElementById("formulario__mensaje-exito").textContent =
 				data.mensaje;
+
 			console.log(data);
 		} catch (error) {
 			console.error("Error:", error);
