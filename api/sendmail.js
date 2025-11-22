@@ -25,7 +25,7 @@ export default async function handler(req, res) {
 	});
 
 	const mailOptions = {
-		from: `"Sitio Web" <${userGmail}>`,
+		from: `"Sitio Web www.juanpabloduette.com.ar" <${userGmail}>`,
 		to: userGmail,
 		subject: "Nuevo mensaje desde el formulario web",
 		text: `Nombre: ${nombre}\nCorreo: ${correo}`,

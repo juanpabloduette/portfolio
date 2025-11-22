@@ -478,9 +478,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			const respuesta = await fetch("/api/sendmail", {
 				method: "POST",
 				body: new URLSearchParams(formData),
-				headers: {
-					"Content-Type": "application/x-www-form-urlencoded",
-				},
 			});
 
 			const data = await respuesta.json();
@@ -502,5 +499,5 @@ document.addEventListener("DOMContentLoaded", () => {
 			console.error("Error:", error);
 		}
 	});
-	console.log("🔥 EL SCRIPT SE EJECUTA");
+	// console.log("🔥 EL SCRIPT SE EJECUTA");
 });
