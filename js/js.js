@@ -470,7 +470,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		e.preventDefault();
 		const buttonsend = document.getElementById("buttonsend");
 		buttonsend.disabled = true;
-		buttonsend.textContent = "Enviando...";
+		buttonsend.innerHTML = `<span class="loader"></span>Enviando...`;
 
 		const formData = new FormData(form);
 
