@@ -468,6 +468,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	form.addEventListener("submit", async (e) => {
 		e.preventDefault();
+		const buttonsend = document.getElementById("buttonsend");
+		buttonsend.disabled = true;
+		buttonsend.textContent = "Enviando...";
 
 		const formData = new FormData(form);
 
@@ -479,9 +482,6 @@ document.addEventListener("DOMContentLoaded", () => {
 					"Content-Type": "application/x-www-form-urlencoded",
 				},
 			});
-			const buttonsend = document.getElementById("buttonsend");
-			buttonsend.disabled = true;
-			buttonsend.textContent = "Enviando...";
 
 			const data = await respuesta.json();
 
@@ -498,7 +498,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			buttonsend.disabled = false;
 			buttonsend.textContent = "Enviar";
 			form.reset();
-			console.log(buttonsend);
 		} catch (error) {
 			console.error("Error:", error);
 		}
