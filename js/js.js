@@ -498,7 +498,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			buttonsend.disabled = false;
 			buttonsend.textContent = "Enviar";
 			form.reset();
-			console.log(data);
+			console.log(buttonsend);
 		} catch (error) {
 			console.error("Error:", error);
 		}
