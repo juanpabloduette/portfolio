@@ -197,6 +197,38 @@ inputs.forEach((input) => {
 	input.addEventListener("blur", validarFormulario);
 });
 
+// formulario.addEventListener("submit", (e) => {
+// 	e.preventDefault();
+
+// 	if (campos.nombre && campos.correo) {
+// 		const formData = new FormData(formulario);
+
+// 		fetch("/api/sendmail", {
+// 			method: "POST",
+// 			body: new URLSearchParams(formData),
+// 			headers: {
+// 				"Content-Type": "application/x-www-form-urlencoded",
+// 			},
+// 		})
+// 			.then((res) => res.json())
+// 			.then((data) => {
+// 				document.getElementById("formulario__mensaje-exito").textContent =
+// 					data.mensaje;
+
+// 				formulario.reset();
+// 			});
+// 	} else {
+// 		document
+// 			.getElementById("formulario__mensaje")
+// 			.classList.add("formulario__mensaje-activo");
+// 		setTimeout(() => {
+// 			document
+// 				.getElementById("formulario__mensaje")
+// 				.classList.remove("formulario__mensaje-activo");
+// 		}, 5000);
+// 	}
+// });
+
 formulario.addEventListener("submit", (e) => {
 	e.preventDefault();
 
@@ -205,10 +237,10 @@ formulario.addEventListener("submit", (e) => {
 
 		fetch("/api/sendmail", {
 			method: "POST",
-			body: new URLSearchParams(formData),
 			headers: {
 				"Content-Type": "application/x-www-form-urlencoded",
 			},
+			body: new URLSearchParams(formData),
 		})
 			.then((res) => res.json())
 			.then((data) => {
@@ -221,6 +253,7 @@ formulario.addEventListener("submit", (e) => {
 		document
 			.getElementById("formulario__mensaje")
 			.classList.add("formulario__mensaje-activo");
+
 		setTimeout(() => {
 			document
 				.getElementById("formulario__mensaje")
