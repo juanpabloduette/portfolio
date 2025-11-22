@@ -248,7 +248,7 @@ fetch("/api/sendmail", {
 
 // FORMULARIO DE PORTFOLIO
 
-const formularioPortfolio = document.getElementById("formulario-portfolio");
+const formularioPortfolio = document.getElementById("formularioportfolio");
 const inputsPortfolio = document.querySelectorAll(
 	"#formulario-portfolio input"
 );
