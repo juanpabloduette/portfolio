@@ -548,8 +548,8 @@ document.addEventListener("DOMContentLoaded", () => {
 					.getElementById("formulario__mensaje-exito")
 					.classList.remove("formulario__mensaje-exito-activo");
 			}, 3000);
-			buttonsendbuttonsendportfolio.disabled = false;
-			buttonsendbuttonsendportfolio.textContent = "Enviar";
+			buttonsendportfolio.disabled = false;
+			buttonsendportfolio.textContent = "Enviar";
 			form.reset();
 		} catch (error) {
 			console.error("Error:", error);
