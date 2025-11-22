@@ -517,4 +517,42 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	});
 	// console.log("🔥 EL SCRIPT SE EJECUTA");
+
+	// FORMULARIO PORTFOLIO
+
+	const formPortfolio = document.getElementById("formulario");
+
+	formPortfolio.addEventListener("submit", async (e) => {
+		e.preventDefault();
+		const buttonsendportfolio = document.getElementById("buttonsendportfolio");
+		buttonsendportfolio.disabled = true;
+		buttonsendportfolio.innerHTML = `<span class="loader"></span>Enviando...`;
+
+		const formData = new FormData(formPortfolio);
+
+		try {
+			const respuesta = await fetch("/api/sendmail", {
+				method: "POST",
+				body: new URLSearchParams(formData),
+			});
+
+			const data = await respuesta.json();
+
+			document
+				.getElementById("formulario__mensaje-exito")
+				.classList.add("formulario__mensaje-exito-activo");
+			document.getElementById("formulario__mensaje-exito").textContent =
+				data.mensaje;
+			setTimeout(() => {
+				document
+					.getElementById("formulario__mensaje-exito")
+					.classList.remove("formulario__mensaje-exito-activo");
+			}, 3000);
+			buttonsendbuttonsendportfolio.disabled = false;
+			buttonsendbuttonsendportfolio.textContent = "Enviar";
+			form.reset();
+		} catch (error) {
+			console.error("Error:", error);
+		}
+	});
 });
