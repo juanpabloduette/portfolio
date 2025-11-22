@@ -550,7 +550,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			}, 3000);
 			buttonsendportfolio.disabled = false;
 			buttonsendportfolio.textContent = "Enviar";
-			form.reset();
+			formPortfolio.reset();
 		} catch (error) {
 			console.error("Error:", error);
 		}
