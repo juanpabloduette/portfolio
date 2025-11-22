@@ -520,7 +520,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// FORMULARIO PORTFOLIO
 
-	const formPortfolio = document.getElementById("formulario");
+	const formPortfolio = document.getElementById("formularioportfolio");
 
 	formPortfolio.addEventListener("submit", async (e) => {
 		e.preventDefault();
