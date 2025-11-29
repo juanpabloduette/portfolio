@@ -972,7 +972,18 @@ body.dark .formulario input {
 	display: none;
 }
 
+.formulario__mensaje-error {
+	font-size: 14px;
+	color: rgb(147, 12, 12);
+	display: none;
+}
+
 .formulario__mensaje-exito-activo {
+	display: block;
+	margin: 20px 0 10px 5px;
+}
+
+.formulario__mensaje-error-activo {
 	display: block;
 	margin: 20px 0 10px 5px;
 }
