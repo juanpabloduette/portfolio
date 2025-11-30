@@ -1942,6 +1942,16 @@ body.dark .contenidopup-6 {
 			"element10 element10";
 	}
 
+	.im-box {
+		flex-direction: column;
+	}
+	.im-box p {
+		width: 100%;
+		padding: 0;
+	}
+	#im2 {
+		margin-top: 20px;
+	}
 	.section2 {
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: 1fr 0.2fr 0.5fr 0.5fr 1fr 1fr;
