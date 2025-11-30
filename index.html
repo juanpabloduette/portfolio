@@ -4,6 +4,8 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- Script de hCaptcha -->
+		<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 		<script
 			src="https://kit.fontawesome.com/81e9130226.js"
 			crossorigin="anonymous"
@@ -225,6 +227,10 @@
 								</p>
 							</div>
 							<div class="caja-boton-enviar">
+								<div
+									class="h-captcha"
+									data-sitekey="15fc7f9c-1bf0-4806-9284-8b78437c22e0"
+								></div>
 								<button type="submit" id="buttonsend">Enviar</button>
 								<div class="formulario__mensaje" id="formulario__mensaje">
 									<p id="errortext">

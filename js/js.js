@@ -480,16 +480,74 @@ function changeLanguage() {
 
 //FORMULARIO ENVIAR MAIL
 
+// document.addEventListener("DOMContentLoaded", () => {
+// 	const form = document.getElementById("formulario");
+
+// 	form.addEventListener("submit", async (e) => {
+// 		e.preventDefault();
+// 		const buttonsend = document.getElementById("buttonsend");
+// 		buttonsend.disabled = true;
+// 		buttonsend.innerHTML = `<span class="loader"></span>Enviando...`;
+
+// 		const formData = new FormData(form);
+
+// 		try {
+// 			const respuesta = await fetch("/api/sendmail", {
+// 				method: "POST",
+// 				body: new URLSearchParams(formData),
+// 			});
+
+// 			const data = await respuesta.json();
+
+// 			document
+// 				.getElementById("formulario__mensaje-exito")
+// 				.classList.add("formulario__mensaje-exito-activo");
+// 			document.getElementById("formulario__mensaje-exito").textContent =
+// 				data.mensaje;
+// 			setTimeout(() => {
+// 				document
+// 					.getElementById("formulario__mensaje-exito")
+// 					.classList.remove("formulario__mensaje-exito-activo");
+// 			}, 3000);
+// 			buttonsend.disabled = false;
+// 			buttonsend.textContent = "Enviar";
+// 			form.reset();
+// 		} catch (error) {
+// 			console.error("Error:", error);
+// 			alert(
+// 				"Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo más tarde."
+// 			);
+// 			buttonsend.disabled = false;
+// 			buttonsend.textContent = "Enviar";
+// 			form.reset();
+// 		}
+// 	});
+// 	// console.log("🔥 EL SCRIPT SE EJECUTA");
+
+// 	// FORMULARIO PORTFOLIO
+
+// 	const formPortfolio = document.getElementById("formularioportfolio");
+
+// });
+
 document.addEventListener("DOMContentLoaded", () => {
 	const form = document.getElementById("formulario");
 
 	form.addEventListener("submit", async (e) => {
 		e.preventDefault();
+
+		const token = hcaptcha.getResponse();
+		if (!token) {
+			alert("Por favor completá el CAPTCHA.");
+			return;
+		}
+
 		const buttonsend = document.getElementById("buttonsend");
 		buttonsend.disabled = true;
 		buttonsend.innerHTML = `<span class="loader"></span>Enviando...`;
 
 		const formData = new FormData(form);
+		formData.append("hcaptcha", token);
 
 		try {
 			const respuesta = await fetch("/api/sendmail", {
@@ -504,61 +562,22 @@ document.addEventListener("DOMContentLoaded", () => {
 				.classList.add("formulario__mensaje-exito-activo");
 			document.getElementById("formulario__mensaje-exito").textContent =
 				data.mensaje;
+
 			setTimeout(() => {
 				document
 					.getElementById("formulario__mensaje-exito")
 					.classList.remove("formulario__mensaje-exito-activo");
 			}, 3000);
+
 			buttonsend.disabled = false;
 			buttonsend.textContent = "Enviar";
 			form.reset();
+			hcaptcha.reset();
 		} catch (error) {
 			console.error("Error:", error);
-			alert(
-				"Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo más tarde."
-			);
+			alert("Hubo un error al enviar el formulario.");
 			buttonsend.disabled = false;
 			buttonsend.textContent = "Enviar";
-			form.reset();
 		}
 	});
-	// console.log("🔥 EL SCRIPT SE EJECUTA");
-
-	// FORMULARIO PORTFOLIO
-
-	const formPortfolio = document.getElementById("formularioportfolio");
-
-	// formPortfolio.addEventListener("submit", async (e) => {
-	// 	e.preventDefault();
-	// 	const buttonsendportfolio = document.getElementById("buttonsendportfolio");
-	// 	buttonsendportfolio.disabled = true;
-	// 	buttonsendportfolio.innerHTML = `<span class="loader"></span>Enviando...`;
-
-	// 	const formData = new FormData(formPortfolio);
-
-	// 	try {
-	// 		const respuesta = await fetch("/api/sendmail", {
-	// 			method: "POST",
-	// 			body: new URLSearchParams(formData),
-	// 		});
-
-	// 		const data = await respuesta.json();
-
-	// 		document
-	// 			.getElementById("formulario__mensaje-exito")
-	// 			.classList.add("formulario__mensaje-exito-activo");
-	// 		document.getElementById("formulario__mensaje-exito").textContent =
-	// 			data.mensaje;
-	// 		setTimeout(() => {
-	// 			document
-	// 				.getElementById("formulario__mensaje-exito")
-	// 				.classList.remove("formulario__mensaje-exito-activo");
-	// 		}, 3000);
-	// 		buttonsendportfolio.disabled = false;
-	// 		buttonsendportfolio.textContent = "Enviar";
-	// 		formPortfolio.reset();
-	// 	} catch (error) {
-	// 		console.error("Error:", error);
-	// 	}
-	// });
 });
