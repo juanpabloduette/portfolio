@@ -988,6 +988,13 @@ body.dark .formulario input {
 	margin: 20px 0 10px 5px;
 }
 
+/* CAPCHA DE FORM*/
+
+.h-captcha {
+	transform: scale(0.6);
+	transform-origin: 0 0;
+}
+
 /* loader de enviando */
 
 .loader {
