@@ -675,6 +675,10 @@ body.dark .section3-8 a:hover {
 	color: #0d1117;
 }
 
+body.dark #im2 a {
+	color: #b3b3b3;
+}
+
 .contenido7 a:hover::after,
 .contenido9 a:hover::after,
 .section33 a:hover::after {
