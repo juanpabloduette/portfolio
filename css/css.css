@@ -707,7 +707,11 @@ body.dark .section3-8 a {
 	border: 2px solid #30363d;
 }
 
-.section3-3 .buttonwhite{
+
+/* PARA DIVS CLAROS EL BOTON OSCURO DE WEB EN PORTFOLIO   */
+
+.section3-3 .buttonwhite,
+.section3-5 .buttonwhite{
 	border: 2px solid #30363d;
 	color:#30363d;
 }
@@ -1315,9 +1319,8 @@ body.dark .formulario input {
 	display: flex;
 	justify-content: center;
 	padding: 20px;
-	background-color: rgb(228, 228, 228);
+	background-color: rgb(215, 215, 215);
 	grid-area: section3-3;
-	background-color: white;
 	position: relative;
 	overflow: hidden;
 }
@@ -2088,11 +2091,6 @@ body.dark .contenidopup-6 {
 	.section3-5 .img-sitiojp {
 		top: 50px;
 		left: 40px;
-	}
-
-	.section3-5 a {
-		color: #30363d;
-		border: 2px solid #30363d;
 	}
 
 	.modal-content {
