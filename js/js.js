@@ -216,7 +216,157 @@ fetch("/api/sendmail", {
 
 // FORMULARIO DE PORTFOLIO
 
+// FORMULARIO DE PORTFOLIO
 
+// Corrección 1: Unificamos los IDs con guion (revisa que tu HTML también lo tenga así)
+const formularioPortfolio = document.getElementById("formulario-portfolio");
+const inputsPortfolio = document.querySelectorAll("#formulario-portfolio input");
+
+const expresionesPortfolio = {
+    // Corrección 2: Regex arreglada para letras, números, acentos y espacios
+    nombrep: /^[a-zA-ZÀ-ÿ\s0-9]{1,40}$/, 
+    correop: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+};
+
+const camposPortfolio = {
+    nombrep: false,
+    correop: false,
+};
+
+const validarFormularioPortfolio = (e) => {
+    switch (e.target.name) {
+        case "nombrep":
+            validarCampoPortfolio(expresionesPortfolio.nombrep, e.target, "nombrep");
+            break;
+        case "correop":
+            validarCampoPortfolio(expresionesPortfolio.correop, e.target, "correop");
+            break;
+    }
+};
+
+// Corrección 4: Cambiamos nombres de parámetros para que sean más claros
+const validarCampoPortfolio = (expresion, input, campo) => {
+    if (expresion.test(input.value)) {
+        document
+            .querySelector(`#grupo__${campo} .formulario__input-error`)
+            .classList.remove("formulario__input-error-activo");
+        camposPortfolio[campo] = true;
+    } else {
+        document
+            .querySelector(`#grupo__${campo} .formulario__input-error`)
+            .classList.add("formulario__input-error-activo");
+        camposPortfolio[campo] = false;
+    }
+};
+
+// Corrección 3: Usamos "input" (singular) para el elemento iterado
+inputsPortfolio.forEach((input) => {
+    input.addEventListener("keyup", validarFormularioPortfolio);
+    input.addEventListener("blur", validarFormularioPortfolio);
+});
+
+formularioPortfolio.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    if (camposPortfolio.nombrep && camposPortfolio.correop) {
+        document
+            .getElementById("formulario__mensaje-exito-portfolio")
+            .classList.add("formulario__mensaje-exito-activo");
+        setTimeout(() => {
+            document
+                .getElementById("formulario__mensaje-exito-portfolio")
+                .classList.remove("formulario__mensaje-exito-activo");
+        }, 5000);
+
+        // formularioPortfolio.submit();
+        formularioPortfolio.reset();
+        
+        // Es buena práctica reiniciar los estados después de un envío exitoso
+        camposPortfolio.nombrep = false;
+        camposPortfolio.correop = false;
+    } else {
+        document
+            .getElementById("formulario__mensaje-portfolio")
+            .classList.add("formulario__mensaje-activo");
+        setTimeout(() => {
+            document
+                .getElementById("formulario__mensaje-portfolio")
+                .classList.remove("formulario__mensaje-activo");
+        }, 5000);
+    }
+});
+
+// const formularioPortfolio = document.getElementById("formularioportfolio");
+// const inputsPortfolio = document.querySelectorAll(
+// 	"#formulario-portfolio input"
+// );
+
+// const expresionesPortfolio = {
+// 	nombrep: /^[a-zA-ZÀ-ÿ\s-Z0-9]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+// 	correop: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+// };
+
+// const camposPortfolio = {
+// 	nombrep: false,
+// 	correop: false,
+// };
+
+// const validarFormularioPortfolio = (e) => {
+// 	switch (e.target.name) {
+// 		case "nombrep":
+// 			validarCampoPortfolio(expresionesPortfolio.nombrep, e.target, "nombrep");
+// 			break;
+// 		case "correop":
+// 			validarCampoPortfolio(expresionesPortfolio.correop, e.target, "correop");
+// 			break;
+// 	}
+// };
+
+// const validarCampoPortfolio = (expresionesPortfolio, inputportfolio, campo) => {
+// 	if (expresionesPortfolio.test(inputportfolio.value)) {
+// 		document
+// 			.querySelector(`#grupo__${campo} .formulario__input-error`)
+// 			.classList.remove("formulario__input-error-activo");
+// 		camposPortfolio[campo] = true;
+// 	} else {
+// 		document
+// 			.querySelector(`#grupo__${campo} .formulario__input-error`)
+// 			.classList.add("formulario__input-error-activo");
+// 		camposPortfolio[campo] = false;
+// 	}
+// };
+
+// inputsPortfolio.forEach((inputsPortfolio) => {
+// 	inputsPortfolio.addEventListener("keyup", validarFormularioPortfolio);
+// 	inputsPortfolio.addEventListener("blur", validarFormularioPortfolio);
+// });
+
+// formularioPortfolio.addEventListener("submit", (e) => {
+// 	e.preventDefault();
+
+// 	if (camposPortfolio.nombrep && camposPortfolio.correop) {
+// 		document
+// 			.getElementById("formulario__mensaje-exito-portfolio")
+// 			.classList.add("formulario__mensaje-exito-activo");
+// 		setTimeout(() => {
+// 			document
+// 				.getElementById("formulario__mensaje-exito-portfolio")
+// 				.classList.remove("formulario__mensaje-exito-activo");
+// 		}, 5000);
+
+// 		// formularioPortfolio.submit();
+// 		formularioPortfolio.reset();
+// 	} else {
+// 		document
+// 			.getElementById("formulario__mensaje-portfolio")
+// 			.classList.add("formulario__mensaje-activo");
+// 		setTimeout(() => {
+// 			document
+// 				.getElementById("formulario__mensaje-portfolio")
+// 				.classList.remove("formulario__mensaje-activo");
+// 		}, 5000);
+// 	}
+// });
 
 /* BOTON IDIOMA */
 
