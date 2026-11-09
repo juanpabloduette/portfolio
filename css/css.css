@@ -349,6 +349,7 @@ body.dark .section2-1habilidades,
 body.dark .section3-1,
 body.dark .section3-2,
 body.dark .section3-3,
+body.dark .section3-33,
 body.dark .section3-4,
 body.dark .section3-5,
 body.dark .section3-6,
@@ -655,6 +656,7 @@ body.dark .contenido7 a::after,
 body.dark .contenido9 a::after,
 body.dark .section3-2 a::after,
 body.dark .section3-3 a::after,
+body.dark .section3-33 a::after,
 body.dark .section3-4 a::after,
 body.dark .section3-5 a::after,
 body.dark .section3-6 a::after,
@@ -667,6 +669,7 @@ body.dark .contenido7 a:hover,
 body.dark .contenido9 a:hover,
 body.dark .section3-2 a:hover,
 body.dark .section3-3 a:hover,
+body.dark .section3-33 a:hover,
 body.dark .section3-4 a:hover,
 body.dark .section3-5 a:hover,
 body.dark .section3-6 a:hover,
@@ -694,6 +697,7 @@ body.dark .contenido7 a,
 body.dark .contenido9 a,
 body.dark .section3-2 a,
 body.dark .section3-3 a,
+body.dark .section3-33 a,
 body.dark .section3-4 a,
 body.dark .section3-5 a,
 body.dark .section3-6 a,
@@ -701,6 +705,11 @@ body.dark .section3-7 a,
 body.dark .section3-8 a {
 	color: #b3b3b3;
 	border: 2px solid #30363d;
+}
+
+.section3-3 .buttonwhite{
+	border: 2px solid #30363d;
+	color:#30363d;
 }
 
 .vermas i {
@@ -1220,7 +1229,7 @@ body.dark .formulario input {
 		"section3-1 section3-1 section3-6 section3-6"
 		"section3-2 section3-4 section3-4 section3-5"
 		"section3-2 section3-4 section3-4 section3-5"
-		"section3-2 section3-3 section3-3 section3-3"
+		"section3-3 section3-3 section3-33 section3-33"
 		"section3-8 section3-8 section3-7 section3-7";
 	display: none;
 }
@@ -1264,6 +1273,7 @@ body.dark .formulario input {
 
 .section3-2 h2,
 .section3-3 h2,
+.section3-33 h2,
 .section3-5 h2 {
 	position: relative;
 	z-index: 5;
@@ -1305,8 +1315,21 @@ body.dark .formulario input {
 	display: flex;
 	justify-content: center;
 	padding: 20px;
-	background-color: white;
+	background-color: rgb(228, 228, 228);
 	grid-area: section3-3;
+	background-color: white;
+	position: relative;
+	overflow: hidden;
+}
+
+
+.section3-33 {
+	border-radius: 30px;
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+	background-color: white;
+	grid-area: section3-33;
 	/*background-color:#6886c5;*/
 	background-color: black;
 	/*background-image: url("../img/main.png");
@@ -1319,7 +1342,16 @@ body.dark .formulario input {
 
 .section3-3 img {
 	position: absolute;
-	width: 150px;
+	width: 80px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+
+.section3-33 img {
+	position: absolute;
+	width: 100px;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -1976,6 +2008,7 @@ body.dark .contenidopup-6 {
 			"section3-2 section3-2 section3-3 section3-3"
 			"section3-2 section3-2 section3-3 section3-3"
 			"section3-5 section3-5 section3-5 section3-5"
+			"section3-33 section3-33 section3-33 section3-33"
 			"section3-6 section3-6 section3-4 section3-4"
 			"section3-7 section3-7 section3-8 section3-8";
 	}
@@ -2044,6 +2077,7 @@ body.dark .contenidopup-6 {
 			"section3-1"
 			"section3-2"
 			"section3-3"
+			"section3-33"
 			"section3-5"
 			"section3-6"
 			"section3-8"
