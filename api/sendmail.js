@@ -33,7 +33,7 @@ export default async function handler(req, res) {
 
 	// ---- SI CAPTCHA OK → ENVIAR EMAIL ----
 
-	const userGmail = "juanpabloduettedev@gmail.com";
+	const userGmail = process.env.EMAIL;
 	const passAppGmail = process.env.PASS;
 
 	const transporter = nodemailer.createTransport({
